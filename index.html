@@ -3,124 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammed Shafayet Muhtasim Chowdhury | Software Engineer & AI Researcher</title>
+    <title>Mohammed Shafayet Muhtasim Chowdhury | Software Engineer</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Premium Dark Theme Variables */
+        /* Rich, Dynamic Dark Theme & Glassmorphism Variables */
         :root {
-            --bg-main: #0f172a;
-            --bg-secondary: #1e293b;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --bg-color: #050b14;
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent-1: #00f2fe;
+            --accent-2: #4facfe;
+            --text-main: #ffffff;
+            --text-muted: #a0aec0;
+            --gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
+        /* Animated Background */
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            line-height: 1.7;
+            background: linear-gradient(-45deg, #050b14, #0a192f, #050b14, #112240);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
             overflow-x: hidden;
+            line-height: 1.7;
         }
 
-        /* Sticky Navigation */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Sticky Glass Navigation */
         nav {
             position: fixed; top: 0; width: 100%;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 11, 20, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 1rem 5%;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid var(--glass-border);
         }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; }
-        .logo span { color: var(--accent); }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-main); text-decoration: none; }
+        .logo span { color: var(--accent-2); }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s; font-weight: 500; }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; font-weight: 500; }
+        .nav-links a:hover { color: var(--accent-1); }
 
-        section { padding: 6rem 5% 4rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
-        .section-title span { color: var(--accent); }
+        section { padding: 8rem 5% 4rem; max-width: 1200px; margin: 0 auto; }
+        
+        .section-title {
+            font-size: 3rem; margin-bottom: 3rem; text-align: center;
+            background: var(--gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.15);
+            border: 1px solid rgba(79, 172, 254, 0.4);
+        }
 
         /* Hero Section */
         #home {
-            height: 100vh; display: flex; align-items: center; justify-content: space-between;
-            padding-top: 8rem;
+            min-height: 100vh; display: flex; align-items: center; justify-content: space-between;
+            padding-top: 6rem;
         }
         .hero-text { flex: 1; padding-right: 2rem; }
-        .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-text h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
         .hero-text h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-text p { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem; }
+        .hero-text p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; }
         
         .hero-img-container { flex: 1; display: flex; justify-content: flex-end; }
         .hero-img {
-            width: 400px; height: 400px; border-radius: 50%;
-            object-fit: cover; border: 4px solid var(--accent);
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
-            background: url('profile.jpeg') center/cover;
+            width: 400px; height: 400px; border-radius: 30%;
+            object-fit: cover;
+            border: 4px solid transparent;
+            background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box, 
+                        var(--gradient) border-box;
+            background-image: url('profile.jpeg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 50px rgba(79, 172, 254, 0.3);
+            animation: float 6s ease-in-out infinite;
         }
 
-        .btn {
-            padding: 0.8rem 2rem; border-radius: 30px; font-weight: 600; text-decoration: none;
-            background: var(--accent); color: white; transition: all 0.3s ease; display: inline-block;
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
-        .btn:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); margin-left: 1rem; }
-        .btn-outline:hover { background: rgba(59, 130, 246, 0.1); }
+
+        /* Buttons */
+        .btn {
+            padding: 0.8rem 2.5rem; border-radius: 30px; font-weight: 600; text-decoration: none;
+            background: var(--gradient); color: white; transition: all 0.3s ease; display: inline-block;
+            border: none; cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(79, 172, 254, 0.4); }
+        .btn-outline { 
+            background: transparent; border: 2px solid var(--accent-2); 
+            color: var(--text-main); margin-left: 1rem; 
+        }
+        .btn-outline:hover { background: rgba(79, 172, 254, 0.1); }
 
         /* Grid Layouts */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
 
-        /* Skill Tags */
-        .skill-category h3 { margin-bottom: 1rem; color: var(--text-primary); border-bottom: 1px solid var(--bg-secondary); padding-bottom: 0.5rem;}
-        .tags { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;}
-        .tech-tag { background: var(--bg-secondary); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.05); }
-
-        /* Cards (Projects & Research) */
-        .card {
-            background: var(--bg-secondary); padding: 2rem; border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.02); transition: transform 0.3s;
+        /* Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+        .tech-tag { 
+            background: rgba(255, 255, 255, 0.05); color: var(--accent-1); 
+            padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; 
+            border: 1px solid var(--glass-border); font-weight: 500;
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; }
-        .card h3 { margin-bottom: 1rem; }
-        .card p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem; }
 
-        /* Results & Interests */
-        .stat-box { text-align: center; padding: 2rem; background: var(--bg-secondary); border-radius: 15px; border-bottom: 4px solid var(--accent); }
-        .stat-box h2 { font-size: 3rem; color: var(--text-primary); margin-bottom: 0.5rem; }
-        .stat-box p { color: var(--text-secondary); }
+        /* Specific Component Tweaks */
+        .skill-category h3 { margin-bottom: 1rem; color: var(--text-main); border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem; }
+        .project-card i { font-size: 2.5rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+        .project-card h3 { margin-bottom: 1rem; }
+        .project-card p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+        
+        .stat-box { text-align: center; }
+        .stat-box h2 { font-size: 3.5rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
 
         /* Contact Section */
-        .contact-box { background: var(--bg-secondary); padding: 3rem; border-radius: 15px; text-align: center; }
-        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
+        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2.5rem; }
         .social-links a { 
             display: inline-flex; justify-content: center; align-items: center;
-            width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.05);
-            color: var(--text-primary); font-size: 1.5rem; transition: all 0.3s;
+            width: 60px; height: 60px; border-radius: 50%; 
+            background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+            color: var(--text-main); font-size: 1.5rem; transition: all 0.3s;
         }
-        .social-links a:hover { background: var(--accent); transform: translateY(-5px); }
+        .social-links a:hover { color: var(--accent-1); transform: translateY(-5px) rotate(8deg); border-color: var(--accent-1); }
 
-        @media (max-width: 768px) {
-            #home { flex-direction: column; text-align: center; padding-top: 6rem; height: auto; }
-            .hero-img-container { margin-top: 3rem; justify-content: center; }
-            .hero-img { width: 300px; height: 300px; }
-            .nav-links { display: none; } /* Mobile menu requires JS, keeping simple for now */
-            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+        @media (max-width: 900px) {
+            #home { flex-direction: column-reverse; text-align: center; padding-top: 8rem; }
+            .hero-text { padding-right: 0; }
+            .hero-text h1 { font-size: 3.5rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#home" class="logo">Sha<span>Fayet</span></a>
+        <a href="#home" class="logo">Sha<span>fayet</span></a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -131,159 +177,196 @@
     </nav>
 
     <section id="home">
-        <div class="hero-text" data-aos="fade-right">
+        <div class="hero-text" data-aos="fade-right" data-aos-duration="1500">
             <h1>Hi, I'm Shafayet<br><span>Software Engineer</span></h1>
             <p>I build robust full-stack applications and research artificial intelligence solutions to solve complex, real-world problems.</p>
             <a href="#projects" class="btn">View My Work</a>
             <a href="#contact" class="btn btn-outline">Contact Me</a>
         </div>
-        <div class="hero-img-container" data-aos="fade-left">
+        <div class="hero-img-container" data-aos="zoom-in" data-aos-duration="1500">
             <div class="hero-img"></div>
         </div>
     </section>
 
-    <section id="about" class="grid-2">
-        <div data-aos="fade-up">
-            <h2 class="section-title" style="text-align: left;">About <span>Me</span></h2>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem;">I am a Computer Science and Engineering graduate with a deep passion for bridging the gap between theoretical research and practical software development. </p>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem;">From writing low-level assembly language simulators to architecting high-level convolutional neural networks, I thrive in environments that challenge me to understand systems from the ground up.</p>
+    <section id="about">
+        <div class="grid-2">
+            <div class="glass-card" data-aos="fade-up" data-aos-duration="1000">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">About <span style="color: var(--accent-2);">Me</span></h2>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">I am a Computer Science and Engineering graduate with a deep passion for bridging the gap between theoretical research and practical software development.</p>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">From writing low-level assembly language simulators to architecting high-level convolutional neural networks, I thrive in environments that challenge me to understand systems from the ground up.</p>
+                
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">My Interests</h3>
+                <div class="tags">
+                    <span class="tech-tag"><i class="fas fa-eye"></i> Computer Vision</span>
+                    <span class="tech-tag"><i class="fas fa-image"></i> Image Processing</span>
+                    <span class="tech-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+                    <span class="tech-tag"><i class="fas fa-server"></i> Backend Architecture</span>
+                    <span class="tech-tag"><i class="fas fa-microchip"></i> IoT Systems</span>
+                    <span class="tech-tag"><i class="fas fa-gamepad"></i> Game Logic</span>
+                </div>
+            </div>
             
-            <h2 class="section-title" style="text-align: left; font-size: 2rem;">My <span>Interests</span></h2>
-            <div class="tags">
-                <span class="tech-tag"><i class="fas fa-brain"></i> Computer Vision</span>
-                <span class="tech-tag"><i class="fas fa-brain"></i> Image Processing</span>
-                <span class="tech-tag"><i class="fas fa-brain"></i> Machine Learning</span>
-                <span class="tech-tag"><i class="fas fa-server"></i> Backend Architecture</span>
-                <span class="tech-tag"><i class="fas fa-microchip"></i> IoT Systems</span>
-                <span class="tech-tag"><i class="fas fa-gamepad"></i> Game Logic</span>
-            </div>
-        </div>
-        
-        <div id="skills" data-aos="fade-left">
-            <div class="skill-category">
-                <h3>Languages & Core</h3>
-                <div class="tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">C++</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Assembly (8086)</span>
-                    <span class="tech-tag">SQL</span>
+            <div id="skills" class="glass-card" data-aos="fade-left" data-aos-duration="1000">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Technical <span style="color: var(--accent-2);">Arsenal</span></h2>
+                <div class="skill-category">
+                    <h3>Languages & Core</h3>
+                    <div class="tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Assembly (8086)</span>
+                        <span class="tech-tag">SQL</span>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-category">
-                <h3>Web & Frameworks</h3>
-                <div class="tags">
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">Django</span>
-                    <span class="tech-tag">Ngrok</span>
-                    <span class="tech-tag">HTML5 / CSS3</span>
-                    <span class="tech-tag">Bootstrap</span>
-                    <span class="tech-tag">PythonAnywhere</span>
+                <div class="skill-category" style="margin-top: 1.5rem;">
+                    <h3>Web & Frameworks</h3>
+                    <div class="tags">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Ngrok</span>
+                        <span class="tech-tag">HTML5 / CSS3</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">PythonAnywhere</span>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-category">
-                <h3>AI & Tools</h3>
-                <div class="tags">
-                    <span class="tech-tag">Deep Learning (CNN,Vit,Densenet)</span>
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">Git / GitHub</span>
-                    <span class="tech-tag">MySQL Database</span>
+                <div class="skill-category" style="margin-top: 1.5rem;">
+                    <h3>AI & Tools</h3>
+                    <div class="tags">
+                        <span class="tech-tag">Deep Learning (CNN, ViT, DenseNet)</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Git / GitHub</span>
+                        <span class="tech-tag">MySQL Database</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="research" style="background: var(--bg-secondary); border-radius: 20px; padding: 4rem;">
-        <div class="grid-2">
-            <div data-aos="fade-right">
-                <h2 class="section-title" style="text-align: left;">Academic <span>Research</span></h2>
-                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Agricultural AI Analysis</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">My culminating thesis focuses on the intersection of agriculture and artificial intelligence. I have developed a Deep Learning model specifically engineered to classify mango leaf morphology.</p>
-                <p style="color: var(--text-secondary);">By analyzing the visual data of the leaves through Triensemble Framework and Computer Vision techniques, the system is designed to detect the exact variety of the fruit and predict its sweetness or sourness profiles before harvesting.</p>
+    <section id="research">
+        <h2 class="section-title" data-aos="fade-down">Academic Excellence</h2>
+        <div class="glass-card" data-aos="flip-up" data-aos-duration="1000">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <h3 style="font-size: 2rem; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-leaf" style="color: #2ecc71;"></i> Agricultural AI Analysis
+                    </h3>
+                </div>
+                <span style="background: rgba(46, 204, 113, 0.1); color: #2ecc71; padding: 0.5rem 1.5rem; border-radius: 30px; border: 1px solid #2ecc71; font-weight: 600; letter-spacing: 1px;">COMPLETED</span>
             </div>
-            <div data-aos="zoom-in" style="text-align: center;">
-                <i class="fas fa-leaf" style="font-size: 10rem; color: var(--accent); opacity: 0.8; drop-shadow(0 0 20px var(--accent));"></i>
+            
+            <div class="grid-2" style="gap: 2rem; align-items: center;">
+                <div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.1rem;">My culminating thesis focuses on the intersection of agriculture and artificial intelligence. I have developed a Deep Learning model specifically engineered to classify mango leaf morphology.</p>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;">By analyzing the visual data of the leaves through a <strong>Triensemble Framework</strong> and Computer Vision techniques, the system is successfully designed to detect the exact variety of the fruit and predict its sweetness or sourness profiles before harvesting.</p>
+                </div>
+                <div class="tags" style="align-content: center; justify-content: center;">
+                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Python</span>
+                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Triensemble Framework</span>
+                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Computer Vision</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2 class="section-title" data-aos="fade-up">Engineering <span>Works</span></h2>
+        <h2 class="section-title" data-aos="fade-down">Engineering Works</h2>
         <div class="grid-3">
             
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fas fa-chart-line"></i>
                 <h3>FINTRACK Platform</h3>
                 <p>A full-stack finance management web application designed for dynamic expense tracking, budget planning, and data visualization. Hosted live via PythonAnywhere.</p>
                 <div class="tags"><span class="tech-tag">Flask</span><span class="tech-tag">MySQL</span><span class="tech-tag">JS</span></div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fas fa-lock"></i>
                 <h3>Jail Management System</h3>
                 <p>A secure, database-driven administrative application engineered to manage complex inmate records and prison logistics efficiently.</p>
                 <div class="tags"><span class="tech-tag">Flask</span><span class="tech-tag">MySQL</span></div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="300">
                 <i class="fas fa-money-check-alt"></i>
                 <h3>Virtual ATM</h3>
                 <p>A robust simulation of core ATM banking logic (PIN verification, withdrawals, balance checks) written entirely in low-level memory operations.</p>
                 <div class="tags"><span class="tech-tag">Assembly 8086</span></div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="400">
+            <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="400">
                 <i class="fas fa-gamepad"></i>
                 <h3>Ronokhetro</h3>
                 <p>A graphical combat game developed from scratch, focusing on logic building, physics calculation, and graphical rendering.</p>
                 <div class="tags"><span class="tech-tag">C++</span><span class="tech-tag">OpenGL</span></div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="500">
+            <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="500">
+                <i class="fas fa-water"></i>
+                <h3>Water Level Indicator</h3>
+                <p>Hardware automation project utilizing sensors to monitor and alert liquid levels in real-time to prevent overflow.</p>
+                <div class="tags"><span class="tech-tag">IoT</span><span class="tech-tag">Hardware</span></div>
+            </div>
+
+            <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="600">
+                <i class="fas fa-cloud-sun-rain"></i>
+                <h3>Micro Climate Predictor</h3>
+                <p>Environmental sensing system designed to detect and predict localized weather anomalies using embedded sensors.</p>
+                <div class="tags"><span class="tech-tag">IoT</span><span class="tech-tag">Sensors</span></div>
+            </div>
+
+            <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="700">
                 <i class="fas fa-robot"></i>
-                <h3>Hardware & Robotics</h3>
-                <p>Engineered multiple IoT systems including a Micro Climate Disaster Predictor, a Multi-Functional Bot, and an automated Water Level Indicator.</p>
-                <div class="tags"><span class="tech-tag">IoT</span><span class="tech-tag">Arduino</span></div>
+                <h3>Multi-Functional Bot</h3>
+                <p>A versatile robotics project engineered to perform automated tasks and physical navigation using microcontroller logic.</p>
+                <div class="tags"><span class="tech-tag">Arduino</span><span class="tech-tag">Robotics</span></div>
             </div>
 
         </div>
     </section>
 
     <section id="results">
-        <h2 class="section-title" data-aos="fade-up">My <span>Results</span></h2>
+        <h2 class="section-title" data-aos="fade-up">By The Numbers</h2>
         <div class="grid-3">
-            <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card stat-box" data-aos="zoom-in" data-aos-delay="100">
                 <h2>8+</h2>
-                <p>Major Projects Built</p>
+                <p style="color: var(--text-muted); font-size: 1.2rem;">Major Projects Built</p>
             </div>
-            <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="glass-card stat-box" data-aos="zoom-in" data-aos-delay="200">
                 <h2>100%</h2>
-                <p>Full Stack Capable</p>
+                <p style="color: var(--text-muted); font-size: 1.2rem;">Full Stack Capable</p>
             </div>
-            <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="glass-card stat-box" data-aos="zoom-in" data-aos-delay="300">
                 <h2>1st</h2>
-                <p>AI Thesis in Progress</p>
+                <p style="color: var(--text-muted); font-size: 1.2rem;">AI Thesis <span style="color: #2ecc71; font-weight: bold;">Completed</span></p>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="contact-box" data-aos="zoom-in">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Let's <span>Connect</span></h2>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem;">I am currently looking for software engineering roles and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-            <a href="mailto:shafayet.shadab@gmail.com" class="btn">Say Hello <i class="fas fa-paper-plane" style="margin-left: 8px;"></i></a>
+        <div class="glass-card" style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="flip-down" data-aos-duration="1200">
+            <h2 style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-main);">Let's <span style="color: var(--accent-2);">Connect</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.2rem;">I am currently looking for software engineering roles and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+            
+            <a href="mailto:shafayet.shadab@gmail.com" class="btn" style="font-size: 1.2rem;">Say Hello <i class="fas fa-paper-plane" style="margin-left: 10px;"></i></a>
             
             <div class="social-links">
-                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/SHA-fayet" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, offset: 50, duration: 800 });
+        // Animations set to trigger dynamically on scroll (up and down)
+        AOS.init({ 
+            once: false,      // Triggers every time you scroll past
+            mirror: true,     // Animates out when scrolling past
+            offset: 80, 
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
     </script>
 </body>
 </html>
